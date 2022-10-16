@@ -11,6 +11,11 @@ using System.Net.Http.Headers;
 
 namespace KnightBot.register_commands;
 
+/// <summary>
+/// Run only once to register slash commands to Discord.
+/// The slash commands /puzzle and /answer can be used to make requests
+/// to DiscordRequests.cs.
+/// </summary>
 internal class Register
 {
     private string tokenHeader = "Bot " + Environment.GetEnvironmentVariable("BOT_TOKEN");

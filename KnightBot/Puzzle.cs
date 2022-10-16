@@ -26,7 +26,11 @@ namespace KnightBot;
 /// Only interested in these 2 fields for the purposes of this implementation:
 ///  - First field details board position.
 ///  - Second field details current player's turn, white or black (w/b).
-
+ 
+/// <summary>
+/// Handles chess board position.
+/// Retrieves puzzles and stores puzzle state per Discord channel.
+/// </summary>
 internal class Puzzle
 {
     private bool whitesTurn;
