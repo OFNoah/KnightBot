@@ -1,5 +1,5 @@
 # Knight Bot
-Play millions of Chess puzzles with friends from your Discord chat room at any difficulty rating. No registeration needed.
+Play chess puzzles with friends from your Discord chat room at any difficulty rating. No registeration needed.
 
 ```
 /puzzle [rating] 
@@ -45,11 +45,13 @@ project.
 - The Lambda function itself could have been split into two Lambdas to handle ``/puzzle`` and ``/answer`` commands separately, but they share many of the
 same helper functions and libraries so they would not be cut down by much.
 
+- It would be best to have a CloudFormation template that can quickly redeploy all resources to easily replicate this project. That being said, deploying the chess puzzle table could be a challenge, as I had to tailor it manually for this project locally on Microsoft SQL Server. Perhaps the tailored CSV can be made public on my S3 bucket for it to be importable by others. This is a topic I will be exploring next.
+
 - The puzzle dataset shows the board position one move before the puzzle actually begins. This is important as the opponent's last move
-could influence your next. However, this meant that I had to have code in place that can change the Chess board position for any move played.
+could influence your next. However, this meant that I had to have code in place that can change the chess board position for any move played.
 
 ## Libraries and Tools Used
-- [Lichess Puzzle Dataset](https://database.lichess.org/#puzzles) A great non-profit that provides free Chess online play, game analysis, as well as extensive
+- [Lichess Puzzle Dataset](https://database.lichess.org/#puzzles) A great non-profit that provides free chess online play, game analysis, as well as extensive
 datasets. The table used in this project consists of ~3 million puzzles, generated over 35 years of CPU time!
 - [AWSSDK.DynamoDBv2](https://github.com/aws/aws-sdk-net)
 - [Amazon.Lambda.Core](https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.Core)
